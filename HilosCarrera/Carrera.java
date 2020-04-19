@@ -1,4 +1,5 @@
 import java.awt.GridLayout;
+import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -17,14 +18,15 @@ public class Carrera extends JFrame implements ActionListener{
 	JButton btnPausar;
 	JButton btnReanudar;
 	JButton btnTerminar;
+	final int ANCHO =700;
 	public Carrera(){
  		setLayout(new GridLayout(0,1));
 		paneles = new JPanel[3];
 		labels = new JLabel[3];
 		//Agregar Paneles y etiquetas
 		JPanel panelBotones;
-		panelBotones= new JPanel():
-		panelBotones.setLayout(new floatLayout());
+		panelBotones= new JPanel();
+		panelBotones.setLayout(new FlowLayout());
 
 		btnComenzar=new JButton("Comenzar");
 		btnPausar=new JButton("Pausar");
@@ -67,7 +69,12 @@ public class Carrera extends JFrame implements ActionListener{
 	public void actionPerformed(ActionEvent arg0) {
 		
 		/*Necesitan ser declarados como atributos los animales aunque si son inicializados en 
-		el boton de comenzar
+		el boton de comenzar.
+
+		Necesitas crear los if else de los botones para separar los eventos
+
+
+		if(arg0.getSource()==btnComenzar){}else if(arg0.getSource()==btnPausar){}
 		*/
 		Animalito conejo = new Animalito("conejo", ANCHO-180,labels[0]);
 		Animalito tortuga = new Animalito("tortuga", ANCHO-180,labels[1]);
