@@ -14,7 +14,11 @@ public class Carrera extends JFrame implements ActionListener{
 	JLabel[] labels;
 	String[] nombres = {"conejo","tortuga","zorro"};
 	JButton btnComenzar;
-		setLayout(new GridLayout(0,1));
+	JButton btnPausar;
+	JButton btnReanudar;
+	JButton btnTerminar;
+	public Carrera(){
+ 		setLayout(new GridLayout(0,1));
 		paneles = new JPanel[3];
 		labels = new JLabel[3];
 		//Agregar Paneles y etiquetas
@@ -22,21 +26,17 @@ public class Carrera extends JFrame implements ActionListener{
 		panelBotones= new JPanel():
 		panelBotones.setLayout(new floatLayout());
 
-		JButton btn Comenzar;
-		btnPausar=new JButton("Comenzar");
-
-		JButton btnPausar;
+		btnComenzar=new JButton("Comenzar");
 		btnPausar=new JButton("Pausar");
-		
-		JButton btn Reanudar;
-		btnPausar=new JButton("Reanudar");
-
-		JButton btn Terminar;
-		btnPausar= new JButton("Terminar");
-
-		panelBotones.add(Pausar);
-		panelBotones.add(Reanudar);
-		panelBotones.add(Terminar)
+		btnReanudar=new JButton("Reanudar");
+		btnTerminar= new JButton("Terminar");
+	
+	//Agregamos los botones a el panel
+	
+		panelBotones.add(btnComenzar);
+		panelBotones.add(btnPausar);
+		panelBotones.add(btnReanudar);
+		panelBotones.add(btnTerminar);
 
 		add(panelBotones);
 
@@ -48,9 +48,13 @@ public class Carrera extends JFrame implements ActionListener{
 			labels[i].setLocation(0, 0);
 			paneles[i].add(labels[i]);
 		}
-		btnComenzar = new JButton(".: Comenzar Carrera :.");
-		add(btnComenzar);
+		
+		//Agregamos escuchadores a los botones
+		
 		btnComenzar.addActionListener(this);
+		btnPausar.addActionListener(this);
+		btnReanudar.addActionListener(this);
+		btnTerminar.addActionListener(this);
 		
 		setSize(ANCHO,500);
 		setVisible(true);
@@ -61,6 +65,10 @@ public class Carrera extends JFrame implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
+		
+		/*Necesitan ser declarados como atributos los animales aunque si son inicializados en 
+		el boton de comenzar
+		*/
 		Animalito conejo = new Animalito("conejo", ANCHO-180,labels[0]);
 		Animalito tortuga = new Animalito("tortuga", ANCHO-180,labels[1]);
 		Animalito zorro = new Animalito("zorro", ANCHO-180,labels[2]);
